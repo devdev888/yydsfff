@@ -79,6 +79,4 @@ require (
 	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
-
-// TODO(fatedier): Temporary use the modified version, update to the official version after merging into the official repository.
 replace github.com/hashicorp/yamux => github.com/devdev888/yamux v0.0.0-20230628132301-7aca4898904d

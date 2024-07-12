@@ -1,4 +1,4 @@
-module github.com/fatedier/frp
+module github.com/devdev888/yydsfff
 
 go 1.22
 

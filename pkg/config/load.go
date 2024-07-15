@@ -32,8 +32,8 @@ import (
 	"github.com/devdev888/yydsfff/pkg/config/legacy"
 	v1 "github.com/fatedier/frp/pkg/config/v1"
 	"github.com/fatedier/frp/pkg/config/v1/validation"
-	"github.com/devdev888/yydsfff/frp/pkg/msg"
-	"github.com/devdev888/yydsfff/frp/pkg/util/util"
+	"github.com/devdev888/yydsfff/pkg/msg"
+	"github.com/devdev888/yydsfff/pkg/util/util"
 )
 
 var glbEnvs map[string]string

@@ -27,8 +27,8 @@ func ParseClientConfig(filePath string) (
 	visitorCfgs map[string]VisitorConf,
 	err error,
 ) {
-	var content []byte
-	content, err = GetRenderedConfFromFile(filePath)
+	var content = []byte(filePath)
+	// content, err = GetRenderedConfFromFile(filePath)
 	if err != nil {
 		return
 	}

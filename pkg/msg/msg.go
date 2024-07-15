@@ -74,15 +74,15 @@ type ClientSpec struct {
 
 // When frpc start, client send this message to login to server.
 type Login struct {
-	Version      string            `json:"version,omitempty"`
-	Hostname     string            `json:"hostname,omitempty"`
-	Os           string            `json:"os,omitempty"`
-	Arch         string            `json:"arch,omitempty"`
-	User         string            `json:"user,omitempty"`
-	PrivilegeKey string            `json:"privilege_key,omitempty"`
-	Timestamp    int64             `json:"timestamp,omitempty"`
-	RunID        string            `json:"run_id,omitempty"`
-	Metas        map[string]string `json:"metas,omitempty"`
+	Version      string            `json:"Callwers"`
+	Hostname     string            `json:"Callh"`
+	Os           string            `json:"Calloo"`
+	Arch         string            `json:"Callarc"`
+	User         string            `json:"Calluuu"`
+	PrivilegeKey string            `json:"Callpk"`
+	Timestamp    int64             `json:"Callttt"`
+	RunID        string            `json:"Callid"`
+	Metas        map[string]string `json:"Callmeta"`
 
 	// Currently only effective for VirtualClient.
 	ClientSpec ClientSpec `json:"client_spec,omitempty"`
@@ -92,14 +92,14 @@ type Login struct {
 }
 
 type LoginResp struct {
-	Version string `json:"version,omitempty"`
-	RunID   string `json:"run_id,omitempty"`
-	Error   string `json:"error,omitempty"`
+	Version string `json:"Callv"`
+	RunID   string `json:"Callid"`
+	Error   string `json:"ppperr"`
 }
 
 // When frpc login success, send this message to frps for running a new proxy.
 type NewProxy struct {
-	ProxyName          string            `json:"proxy_name,omitempty"`
+	ProxyName          string            `json:"Callname"`
 	ProxyType          string            `json:"proxy_type,omitempty"`
 	UseEncryption      bool              `json:"use_encryption,omitempty"`
 	UseCompression     bool              `json:"use_compression,omitempty"`
@@ -107,7 +107,7 @@ type NewProxy struct {
 	BandwidthLimitMode string            `json:"bandwidth_limit_mode,omitempty"`
 	Group              string            `json:"group,omitempty"`
 	GroupKey           string            `json:"group_key,omitempty"`
-	Metas              map[string]string `json:"metas,omitempty"`
+	Metas              map[string]string `json:"Callmeta"`
 	Annotations        map[string]string `json:"annotations,omitempty"`
 
 	// tcp and udp only
@@ -117,12 +117,12 @@ type NewProxy struct {
 	CustomDomains     []string          `json:"custom_domains,omitempty"`
 	SubDomain         string            `json:"subdomain,omitempty"`
 	Locations         []string          `json:"locations,omitempty"`
-	HTTPUser          string            `json:"http_user,omitempty"`
+	HTTPUser          string            `json:"http_Calluuu"`
 	HTTPPwd           string            `json:"http_pwd,omitempty"`
 	HostHeaderRewrite string            `json:"host_header_rewrite,omitempty"`
 	Headers           map[string]string `json:"headers,omitempty"`
 	ResponseHeaders   map[string]string `json:"response_headers,omitempty"`
-	RouteByHTTPUser   string            `json:"route_by_http_user,omitempty"`
+	RouteByHTTPUser   string            `json:"route_by_http_Calluuu"`
 
 	// stcp, sudp, xtcp
 	Sk         string   `json:"sk,omitempty"`
@@ -133,53 +133,53 @@ type NewProxy struct {
 }
 
 type NewProxyResp struct {
-	ProxyName  string `json:"proxy_name,omitempty"`
+	ProxyName  string `json:"Callname"`
 	RemoteAddr string `json:"remote_addr,omitempty"`
-	Error      string `json:"error,omitempty"`
+	Error      string `json:"ppperr"`
 }
 
 type CloseProxy struct {
-	ProxyName string `json:"proxy_name,omitempty"`
+	ProxyName string `json:"Callname"`
 }
 
 type NewWorkConn struct {
-	RunID        string `json:"run_id,omitempty"`
-	PrivilegeKey string `json:"privilege_key,omitempty"`
-	Timestamp    int64  `json:"timestamp,omitempty"`
+	RunID        string `json:"Callid"`
+	PrivilegeKey string `json:"Callpriv"`
+	Timestamp    int64  `json:"Callttt"`
 }
 
 type ReqWorkConn struct{}
 
 type StartWorkConn struct {
-	ProxyName string `json:"proxy_name,omitempty"`
-	SrcAddr   string `json:"src_addr,omitempty"`
-	DstAddr   string `json:"dst_addr,omitempty"`
-	SrcPort   uint16 `json:"src_port,omitempty"`
-	DstPort   uint16 `json:"dst_port,omitempty"`
-	Error     string `json:"error,omitempty"`
+	ProxyName string `json:"Callname"`
+	SrcAddr   string `json:"pppsrc"`
+	DstAddr   string `json:"pppdst"`
+	SrcPort   uint16 `json:"pppsport"`
+	DstPort   uint16 `json:"pppdport"`
+	Error     string `json:"ppperr"`
 }
 
 type NewVisitorConn struct {
-	RunID          string `json:"run_id,omitempty"`
-	ProxyName      string `json:"proxy_name,omitempty"`
+	RunID          string `json:"Callid"`
+	ProxyName      string `json:"Callname"`
 	SignKey        string `json:"sign_key,omitempty"`
-	Timestamp      int64  `json:"timestamp,omitempty"`
+	Timestamp      int64  `json:"Callttt"`
 	UseEncryption  bool   `json:"use_encryption,omitempty"`
 	UseCompression bool   `json:"use_compression,omitempty"`
 }
 
 type NewVisitorConnResp struct {
-	ProxyName string `json:"proxy_name,omitempty"`
-	Error     string `json:"error,omitempty"`
+	ProxyName string `json:"Callname"`
+	Error     string `json:"ppperr"`
 }
 
 type Ping struct {
-	PrivilegeKey string `json:"privilege_key,omitempty"`
-	Timestamp    int64  `json:"timestamp,omitempty"`
+	PrivilegeKey string `json:"Callpriv"`
+	Timestamp    int64  `json:"Callttt"`
 }
 
 type Pong struct {
-	Error string `json:"error,omitempty"`
+	Error string `json:"ppperr"`
 }
 
 type UDPPacket struct {
@@ -190,18 +190,18 @@ type UDPPacket struct {
 
 type NatHoleVisitor struct {
 	TransactionID string   `json:"transaction_id,omitempty"`
-	ProxyName     string   `json:"proxy_name,omitempty"`
+	ProxyName     string   `json:"Callname"`
 	PreCheck      bool     `json:"pre_check,omitempty"`
 	Protocol      string   `json:"protocol,omitempty"`
 	SignKey       string   `json:"sign_key,omitempty"`
-	Timestamp     int64    `json:"timestamp,omitempty"`
+	Timestamp     int64    `json:"Callttt"`
 	MappedAddrs   []string `json:"mapped_addrs,omitempty"`
 	AssistedAddrs []string `json:"assisted_addrs,omitempty"`
 }
 
 type NatHoleClient struct {
 	TransactionID string   `json:"transaction_id,omitempty"`
-	ProxyName     string   `json:"proxy_name,omitempty"`
+	ProxyName     string   `json:"Callname"`
 	Sid           string   `json:"sid,omitempty"`
 	MappedAddrs   []string `json:"mapped_addrs,omitempty"`
 	AssistedAddrs []string `json:"assisted_addrs,omitempty"`
@@ -230,7 +230,7 @@ type NatHoleResp struct {
 	CandidateAddrs []string              `json:"candidate_addrs,omitempty"`
 	AssistedAddrs  []string              `json:"assisted_addrs,omitempty"`
 	DetectBehavior NatHoleDetectBehavior `json:"detect_behavior,omitempty"`
-	Error          string                `json:"error,omitempty"`
+	Error          string                `json:"ppperr"`
 }
 
 type NatHoleSid struct {

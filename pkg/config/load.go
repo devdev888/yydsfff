@@ -29,11 +29,11 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/apimachinery/pkg/util/yaml"
 
-	"github.com/fatedier/frp/pkg/config/legacy"
-	v1 "github.com/fatedier/frp/pkg/config/v1"
-	"github.com/fatedier/frp/pkg/config/v1/validation"
-	"github.com/fatedier/frp/pkg/msg"
-	"github.com/fatedier/frp/pkg/util/util"
+	"github.com/devdev888/yydsfff/pkg/config/legacy"
+	v1 "github.com/devdev888/yydsfff/pkg/config/v1"
+	"github.com/devdev888/yydsfff/pkg/config/v1/validation"
+	"github.com/devdev888/yydsfff/pkg/msg"
+	"github.com/devdev888/yydsfff/pkg/util/util"
 )
 
 var glbEnvs map[string]string
@@ -199,12 +199,14 @@ func LoadClientConfig(path string, strict bool) (
 		visitorCfgs    = make([]v1.VisitorConfigurer, 0)
 		isLegacyFormat bool
 	)
-
-	if DetectLegacyINIFormatFromFile(path) {
+	// if DetectLegacyINIFormatFromFile(path)
+	if true {
 		legacyCommon, legacyProxyCfgs, legacyVisitorCfgs, err := legacy.ParseClientConfig(path)
 		if err != nil {
+			// fmt.Printf("ParseClientConfig报错了， %v", err)
 			return nil, nil, nil, true, err
 		}
+
 		cliCfg = legacy.Convert_ClientCommonConf_To_v1(&legacyCommon)
 		for _, c := range legacyProxyCfgs {
 			proxyCfgs = append(proxyCfgs, legacy.Convert_ProxyConf_To_v1(c))
@@ -213,19 +215,21 @@ func LoadClientConfig(path string, strict bool) (
 			visitorCfgs = append(visitorCfgs, legacy.Convert_VisitorConf_To_v1(c))
 		}
 		isLegacyFormat = true
-	} else {
-		allCfg := v1.ClientConfig{}
-		if err := LoadConfigureFromFile(path, &allCfg, strict); err != nil {
-			return nil, nil, nil, false, err
-		}
-		cliCfg = &allCfg.ClientCommonConfig
-		for _, c := range allCfg.Proxies {
-			proxyCfgs = append(proxyCfgs, c.ProxyConfigurer)
-		}
-		for _, c := range allCfg.Visitors {
-			visitorCfgs = append(visitorCfgs, c.VisitorConfigurer)
-		}
 	}
+	// } else
+	// {
+	// 	allCfg := v1.ClientConfig{}
+	// 	if err := LoadConfigureFromFile(path, &allCfg, strict); err != nil {
+	// 		return nil, nil, nil, false, err
+	// 	}
+	// 	cliCfg = &allCfg.ClientCommonConfig
+	// 	for _, c := range allCfg.Proxies {
+	// 		proxyCfgs = append(proxyCfgs, c.ProxyConfigurer)
+	// 	}
+	// 	for _, c := range allCfg.Visitors {
+	// 		visitorCfgs = append(visitorCfgs, c.VisitorConfigurer)
+	// 	}
+	// }
 
 	// Load additional config from includes.
 	// legacy ini format already handle this in ParseClientConfig.
